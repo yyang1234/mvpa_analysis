@@ -1,0 +1,149 @@
+{
+  "QA": {
+    "glm": {
+      "do": false
+    }
+  },
+  "anatOnly": false,
+  "bidsFilterFile": {
+    "bold": {
+      "modality": "func",
+      "suffix": "bold"
+    },
+    "fmap": {
+      "modality": "fmap"
+    },
+    "mp2rage": {
+      "modality": "anat",
+      "space": "",
+      "suffix": "MP2RAGE"
+    },
+    "roi": {
+      "modality": "roi",
+      "suffix": "mask"
+    },
+    "t1w": {
+      "modality": "anat",
+      "space": "",
+      "suffix": "T1w"
+    },
+    "t2w": {
+      "modality": "anat",
+      "suffix": "T2w"
+    },
+    "xfm": {
+      "modality": "anat",
+      "suffix": "xfm",
+      "to": "T1w"
+    }
+  },
+  "boilerplate_only": false,
+  "contrastList": [],
+  "dir": {
+    "derivatives": "/Users/yiyang/DATA/numMVPA_analysis/code/src/bidspm/derivatives",
+    "input": "/Users/yiyang/DATA/numMVPA_analysis/inputs/raw",
+    "jobs": "/Users/yiyang/DATA/numMVPA_analysis/code/src/bidspm/jobs/numMVPA",
+    "output": "/Users/yiyang/DATA/numMVPA_analysis/code/src/bidspm",
+    "preproc": "/Users/yiyang/DATA/numMVPA_analysis/code/src/bidspm",
+    "raw": "/Users/yiyang/DATA/numMVPA_analysis/inputs/raw",
+    "roi": "/Users/yiyang/DATA/numMVPA_analysis/code/src/bidspm/derivatives/bidspm-roi",
+    "stats": ""
+  },
+  "dryRun": false,
+  "dummy_scans": 0,
+  "funcVolToSelect": [],
+  "funcVoxelDims": [],
+  "fwhm": {
+    "contrast": 0,
+    "func": 6
+  },
+  "glm": {
+    "keepResiduals": false,
+    "maxNbVols": null,
+    "roibased": {
+      "do": false
+    },
+    "useDummyRegressor": false
+  },
+  "groups": [""],
+  "model": {
+    "designOnly": false,
+    "file": []
+  },
+  "msg": {
+    "color": ""
+  },
+  "pipeline": {
+    "name": "bidspm",
+    "type": ""
+  },
+  "query": {
+    "modality": [
+      "anat",
+      "func"
+    ]
+  },
+  "realign": {
+    "useUnwarp": true
+  },
+  "rename": true,
+  "results": {
+    "MC": "FWE",
+    "atlas": "Neuromorphometrics",
+    "binary": false,
+    "csv": true,
+    "k": 0,
+    "montage": {
+      "background": "/Users/yiyang/spm12/canonical/avg152T1.nii",
+      "do": false,
+      "orientation": "axial",
+      "slices": []
+    },
+    "name": [""],
+    "nidm": true,
+    "nodeName": "",
+    "p": 0.05,
+    "png": true,
+    "threshSpm": false,
+    "useMask": false
+  },
+  "roi": {
+    "atlas": "neuromorphometrics",
+    "name": [""],
+    "hemi": [
+      "L",
+      "R"
+    ]
+  },
+  "segment": {
+    "biasfwhm": 60,
+    "do": true,
+    "force": false,
+    "samplingDistance": 3
+  },
+  "skullstrip": {
+    "do": true,
+    "force": false,
+    "mean": false,
+    "threshold": 0.75
+  },
+  "space": ["IXI549Space"],
+  "stc": {
+    "referenceSlice": [],
+    "skip": false
+  },
+  "subjects": [[]],
+  "taskName": ["numMVPA"],
+  "tolerant": true,
+  "toolbox": {
+    "MACS": {
+      "model": {
+        "files": []
+      }
+    }
+  },
+  "useBidsSchema": false,
+  "useFieldmaps": true,
+  "verbosity": 2,
+  "zeropad": 2
+}

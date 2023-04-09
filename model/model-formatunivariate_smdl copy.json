@@ -1,0 +1,145 @@
+{
+  "Name": "only_modality",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "contrasts for the five tyoes of stimuli ignore the quantity",
+  "Input": {"task": [
+          "numMVPA"
+      ],
+      "space": [
+        "IXI549Space"
+      ]
+  },
+  "Nodes": [
+      {
+          "Level": "Run",
+          "Name": "run_level",
+          "GroupBy": ["run", "session","subject"],
+          "Model": {
+              "X": [
+                "trial_type.2aud_num",
+                "trial_type.2aud_seq",
+                "trial_type.2vis_num",
+                "trial_type.2vis_seq",
+                "trial_type.2vis_sim",
+                "trial_type.3aud_num",
+                "trial_type.3aud_seq",
+                "trial_type.3vis_num",
+                "trial_type.3vis_seq",
+                "trial_type.3vis_sim",
+                "trial_type.4aud_num",
+                "trial_type.4aud_seq",
+                "trial_type.4vis_num",
+                "trial_type.4vis_seq",
+                "trial_type.4vis_sim",
+                "trial_type.5aud_num",
+                "trial_type.5aud_seq",
+                "trial_type.5vis_num",
+                "trial_type.5vis_seq",
+                "trial_type.5vis_sim",
+                "trial_type.response",
+                 "trans_?",
+                 "rot_?"
+              ],
+              "HRF": {
+                  "Variables": [
+                    "trial_type.2aud_num",
+                    "trial_type.2aud_seq",
+                    "trial_type.2vis_num",
+                    "trial_type.2vis_seq",
+                    "trial_type.2vis_sim",
+                    "trial_type.3aud_num",
+                    "trial_type.3aud_seq",
+                    "trial_type.3vis_num",
+                    "trial_type.3vis_seq",
+                    "trial_type.3vis_sim",
+                    "trial_type.4aud_num",
+                    "trial_type.4aud_seq",
+                    "trial_type.4vis_num",
+                    "trial_type.4vis_seq",
+                    "trial_type.4vis_sim",
+                    "trial_type.5aud_num",
+                    "trial_type.5aud_seq",
+                    "trial_type.5vis_num",
+                    "trial_type.5vis_seq",
+                    "trial_type.5vis_sim",
+                    "trial_type.response"
+                  ],
+                  "Model": "spm"
+              },
+              "Type": "glm",
+              "Options": {
+                  "HighPassFilterCutoffHz": 0.0078,
+                  "Mask": {
+                    "suffix": [
+                      "mask"
+                    ],
+                    "desc": [
+                      "brain"
+                    ]
+                  }
+              },
+              "Software": {
+                  "SPM": {
+                      "SerialCorrelation": "AR(1)"
+                  }
+              }
+          }, 
+          "DummyContrasts": {
+              "Test": "t",
+              "Contrasts": [
+                "trial_type.2aud_num",
+                "trial_type.2aud_seq",
+                "trial_type.2vis_num",
+                "trial_type.2vis_seq",
+                "trial_type.2vis_sim",
+                "trial_type.3aud_num",
+                "trial_type.3aud_seq",
+                "trial_type.3vis_num",
+                "trial_type.3vis_seq",
+                "trial_type.3vis_sim",
+                "trial_type.4aud_num",
+                "trial_type.4aud_seq",
+                "trial_type.4vis_num",
+                "trial_type.4vis_seq",
+                "trial_type.4vis_sim",
+                "trial_type.5aud_num",
+                "trial_type.5aud_seq",
+                "trial_type.5vis_num",
+                "trial_type.5vis_seq",
+                "trial_type.5vis_sim",
+                "trial_type.response"
+              ]
+          },
+          "Contrasts": [
+            {
+              "Name": "aud_vis",
+              "ConditionList": [
+                "trial_type.2aud_num",
+                "trial_type.2aud_seq",
+                "trial_type.2vis_num",
+                "trial_type.2vis_seq",
+                "trial_type.2vis_sim",
+                "trial_type.3aud_num",
+                "trial_type.3aud_seq",
+                "trial_type.3vis_num",
+                "trial_type.3vis_seq",
+                "trial_type.3vis_sim",
+                "trial_type.4aud_num",
+                "trial_type.4aud_seq",
+                "trial_type.4vis_num",
+                "trial_type.4vis_seq",
+                "trial_type.4vis_sim",
+                "trial_type.5aud_num",
+                "trial_type.5aud_seq",
+                "trial_type.5vis_num",
+                "trial_type.5vis_seq",
+                "trial_type.5vis_sim"
+              ],
+              "Weights": [0.125,0.125,-0.083,-0.083,-0.083,0.125,0.125,-0.083,-0.083,-0.083,0.125,0.125,-0.083,-0.083,-0.083,0.125,0.125,-0.083,-0.083,-0.087
+              ],
+              "Test": "t"
+            }
+          ]
+      }
+  ]
+}

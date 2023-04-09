@@ -1,0 +1,427 @@
+{
+    "QA": {
+        "glm": {
+            "do": false
+        },
+        "anat": {
+            "do": true
+        },
+        "func": {
+            "do": true,
+            "carpetPlot": true,
+            "Motion": "on",
+            "FD": "on",
+            "Voltera": "on",
+            "Globals": "on",
+            "Movie": "off",
+            "Basics": "on"
+        }
+    },
+    "anatOnly": false,
+    "bidsFilterFile": {
+        "fmap": {
+            "modality": "fmap"
+        },
+        "bold": {
+            "modality": "func",
+            "suffix": "bold"
+        },
+        "t2w": {
+            "modality": "anat",
+            "suffix": "T2w"
+        },
+        "t1w": {
+            "modality": "anat",
+            "space": "",
+            "suffix": "T1w"
+        },
+        "mp2rage": {
+            "modality": "anat",
+            "space": "",
+            "suffix": "MP2RAGE"
+        },
+        "roi": {
+            "modality": "roi",
+            "suffix": "mask"
+        }
+    },
+    "contrastList": [],
+    "desc": "MVPA",
+    "dir": {
+        "cosmo": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/CoSMoMVPA",
+        "derivatives": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives",
+        "input": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/bidspm-preproc",
+        "jobs": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/bidspm-stats/jobs/numMVPA",
+        "output": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/bidspm-stats",
+        "preproc": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/bidspm-preproc",
+        "raw": "/Users/yiyang/DATA/numMVPA_analysis/inputs/raw",
+        "rois": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/bidspm-rois",
+        "stats": "/Users/yiyang/DATA/numMVPA_analysis/outputs/derivatives/bidspm-stats"
+    },
+    "dryRun": false,
+    "funcVolToSelect": [],
+    "funcVoxelDims": [],
+    "fwhm": {
+        "func": 6,
+        "contrast": 0
+    },
+    "glm": {
+        "roibased": {
+            "do": false
+        },
+        "maxNbVols": null,
+        "useDummyRegressor": false,
+        "keepResiduals": false
+    },
+    "groups": [""],
+    "model": {
+        "designOnly": false,
+        "file": "/Users/yiyang/DATA/numMVPA_analysis/code/src/mvpa/../../../code/models/model-defaultNumMVPA_smdl.json",
+        "bm": {
+            "content": {
+                "Name": "default_numMVPA_model_unicontrast",
+                "BIDSModelVersion": "1.0.0",
+                "Description": "default BIDS stats model for numMVPA task",
+                "Input": {
+                    "task": ["numMVPA"],
+                    "space": ["IXI549Space"]
+                },
+                "Nodes": {
+                    "Level": "Run",
+                    "Name": "run",
+                    "GroupBy": [
+                        "run",
+                        "session",
+                        "subject"
+                    ],
+                    "Model": {
+                        "X": [
+                            "trial_type.2aud_num",
+                            "trial_type.2aud_seq",
+                            "trial_type.2vis_num",
+                            "trial_type.2vis_seq",
+                            "trial_type.2vis_sim",
+                            "trial_type.3aud_num",
+                            "trial_type.3aud_seq",
+                            "trial_type.3vis_num",
+                            "trial_type.3vis_seq",
+                            "trial_type.3vis_sim",
+                            "trial_type.4aud_num",
+                            "trial_type.4aud_seq",
+                            "trial_type.4vis_num",
+                            "trial_type.4vis_seq",
+                            "trial_type.4vis_sim",
+                            "trial_type.5aud_num",
+                            "trial_type.5aud_seq",
+                            "trial_type.5vis_num",
+                            "trial_type.5vis_seq",
+                            "trial_type.5vis_sim",
+                            "trial_type.response",
+                            "trans_?",
+                            "rot_?"
+                        ],
+                        "Type": "glm",
+                        "HRF": {
+                            "Variables": [
+                                "trial_type.2aud_num",
+                                "trial_type.2aud_seq",
+                                "trial_type.2vis_num",
+                                "trial_type.2vis_seq",
+                                "trial_type.2vis_sim",
+                                "trial_type.3aud_num",
+                                "trial_type.3aud_seq",
+                                "trial_type.3vis_num",
+                                "trial_type.3vis_seq",
+                                "trial_type.3vis_sim",
+                                "trial_type.4aud_num",
+                                "trial_type.4aud_seq",
+                                "trial_type.4vis_num",
+                                "trial_type.4vis_seq",
+                                "trial_type.4vis_sim",
+                                "trial_type.5aud_num",
+                                "trial_type.5aud_seq",
+                                "trial_type.5vis_num",
+                                "trial_type.5vis_seq",
+                                "trial_type.5vis_sim"
+                            ],
+                            "Model": "spm"
+                        },
+                        "Options": {
+                            "HighPassFilterCutoffHz": 0.0078,
+                            "Mask": {
+                                "desc": ["brain"],
+                                "suffix": ["mask"]
+                            }
+                        },
+                        "Software": {
+                            "SPM": {
+                                "SerialCorrelation": "FAST"
+                            }
+                        }
+                    },
+                    "DummyContrasts": {
+                        "Test": "t",
+                        "Contrasts": [
+                            "trial_type.2aud_num",
+                            "trial_type.2aud_seq",
+                            "trial_type.2vis_num",
+                            "trial_type.2vis_seq",
+                            "trial_type.2vis_sim",
+                            "trial_type.3aud_num",
+                            "trial_type.3aud_seq",
+                            "trial_type.3vis_num",
+                            "trial_type.3vis_seq",
+                            "trial_type.3vis_sim",
+                            "trial_type.4aud_num",
+                            "trial_type.4aud_seq",
+                            "trial_type.4vis_num",
+                            "trial_type.4vis_seq",
+                            "trial_type.4vis_sim",
+                            "trial_type.5aud_num",
+                            "trial_type.5aud_seq",
+                            "trial_type.5vis_num",
+                            "trial_type.5vis_seq",
+                            "trial_type.5vis_sim"
+                        ]
+                    }
+                },
+                "Edges": [
+                    {
+                        "Source": "run",
+                        "Destination": "subject"
+                    },
+                    {
+                        "Source": "subject",
+                        "Destination": "dataset"
+                    }
+                ]
+            },
+            "Name": "default_numMVPA_model_unicontrast",
+            "Description": "default BIDS stats model for numMVPA task",
+            "BIDSModelVersion": "1.0.0",
+            "Input": {
+                "task": ["numMVPA"],
+                "space": ["IXI549Space"]
+            },
+            "Nodes": [
+                {
+                    "Level": "Run",
+                    "Name": "run",
+                    "GroupBy": [
+                        "run",
+                        "session",
+                        "subject"
+                    ],
+                    "Model": {
+                        "X": [
+                            "trial_type.2aud_num",
+                            "trial_type.2aud_seq",
+                            "trial_type.2vis_num",
+                            "trial_type.2vis_seq",
+                            "trial_type.2vis_sim",
+                            "trial_type.3aud_num",
+                            "trial_type.3aud_seq",
+                            "trial_type.3vis_num",
+                            "trial_type.3vis_seq",
+                            "trial_type.3vis_sim",
+                            "trial_type.4aud_num",
+                            "trial_type.4aud_seq",
+                            "trial_type.4vis_num",
+                            "trial_type.4vis_seq",
+                            "trial_type.4vis_sim",
+                            "trial_type.5aud_num",
+                            "trial_type.5aud_seq",
+                            "trial_type.5vis_num",
+                            "trial_type.5vis_seq",
+                            "trial_type.5vis_sim",
+                            "trial_type.response",
+                            "trans_?",
+                            "rot_?"
+                        ],
+                        "Type": "glm",
+                        "HRF": {
+                            "Variables": [
+                                "trial_type.2aud_num",
+                                "trial_type.2aud_seq",
+                                "trial_type.2vis_num",
+                                "trial_type.2vis_seq",
+                                "trial_type.2vis_sim",
+                                "trial_type.3aud_num",
+                                "trial_type.3aud_seq",
+                                "trial_type.3vis_num",
+                                "trial_type.3vis_seq",
+                                "trial_type.3vis_sim",
+                                "trial_type.4aud_num",
+                                "trial_type.4aud_seq",
+                                "trial_type.4vis_num",
+                                "trial_type.4vis_seq",
+                                "trial_type.4vis_sim",
+                                "trial_type.5aud_num",
+                                "trial_type.5aud_seq",
+                                "trial_type.5vis_num",
+                                "trial_type.5vis_seq",
+                                "trial_type.5vis_sim"
+                            ],
+                            "Model": "spm"
+                        },
+                        "Options": {
+                            "HighPassFilterCutoffHz": 0.0078,
+                            "Mask": {
+                                "desc": ["brain"],
+                                "suffix": ["mask"]
+                            }
+                        },
+                        "Software": {
+                            "SPM": {
+                                "SerialCorrelation": "FAST"
+                            }
+                        }
+                    },
+                    "DummyContrasts": {
+                        "Test": "t",
+                        "Contrasts": [
+                            "trial_type.2aud_num",
+                            "trial_type.2aud_seq",
+                            "trial_type.2vis_num",
+                            "trial_type.2vis_seq",
+                            "trial_type.2vis_sim",
+                            "trial_type.3aud_num",
+                            "trial_type.3aud_seq",
+                            "trial_type.3vis_num",
+                            "trial_type.3vis_seq",
+                            "trial_type.3vis_sim",
+                            "trial_type.4aud_num",
+                            "trial_type.4aud_seq",
+                            "trial_type.4vis_num",
+                            "trial_type.4vis_seq",
+                            "trial_type.4vis_sim",
+                            "trial_type.5aud_num",
+                            "trial_type.5aud_seq",
+                            "trial_type.5vis_num",
+                            "trial_type.5vis_seq",
+                            "trial_type.5vis_sim"
+                        ]
+                    }
+                }
+            ],
+            "Edges": [
+                {
+                    "Source": "run",
+                    "Destination": "subject"
+                },
+                {
+                    "Source": "subject",
+                    "Destination": "dataset"
+                }
+            ],
+            "tolerant": true,
+            "verbose": true
+        }
+    },
+    "msg": {
+        "color": ""
+    },
+    "parallelize": {
+        "do": false,
+        "nbWorkers": 1,
+        "killOnExit": true
+    },
+    "pipeline": {
+        "name": "bidspm",
+        "type": "stats"
+    },
+    "query": {
+        "modality": [
+            "anat",
+            "func"
+        ]
+    },
+    "realign": {
+        "useUnwarp": true
+    },
+    "rename": true,
+    "segment": {
+        "do": true,
+        "force": false,
+        "biasfwhm": 60,
+        "samplingDistance": 3
+    },
+    "skullstrip": {
+        "do": true,
+        "force": false,
+        "threshold": 0.75,
+        "mean": false
+    },
+    "space": ["IXI549Space"],
+    "stc": {
+        "referenceSlice": [],
+        "sliceOrder": [],
+        "skip": false
+    },
+    "subjects": ["001"],
+    "taskName": ["numMVPA"],
+    "toolbox": {
+        "MACS": {
+            "model": {
+                "files": []
+            }
+        },
+        "rsHRF": {
+            "vox_rsHRF": {
+                "Denoising": {
+                    "generic": [],
+                    "Detrend": 0,
+                    "BPF": [],
+                    "Despiking": 0,
+                    "which1st": 3
+                },
+                "HRFE": {
+                    "hrfm": 2,
+                    "hrflen": 32,
+                    "num_basis": null,
+                    "mdelay": [4,8],
+                    "cvi": 0,
+                    "fmri_t": 1,
+                    "fmri_t0": 1,
+                    "thr": 1,
+                    "localK": 2,
+                    "tmask": null,
+                    "hrfdeconv": 1
+                },
+                "rmoutlier": 0,
+                "connectivity": [],
+                "savedata": {
+                    "deconv_save": 0,
+                    "hrfmat_save": 1,
+                    "hrfnii_save": 1,
+                    "job_save": 0
+                },
+                "prefix": "deconv_"
+            }
+        }
+    },
+    "useBidsSchema": false,
+    "useFieldmaps": true,
+    "verbosity": 2,
+    "zeropad": 2,
+    "results": {
+        "nodeName": "",
+        "name": [""],
+        "useMask": false,
+        "MC": "FWE",
+        "p": 0.05,
+        "k": 0,
+        "png": true,
+        "csv": true,
+        "atlas": "Neuromorphometrics",
+        "threshSpm": false,
+        "binary": false,
+        "montage": {
+            "do": false,
+            "slices": [],
+            "orientation": "axial",
+            "background": "/Users/yiyang/spm12/canonical/avg152T1.nii"
+        },
+        "nidm": true
+    }
+}

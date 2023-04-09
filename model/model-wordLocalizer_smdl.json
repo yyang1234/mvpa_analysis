@@ -1,0 +1,100 @@
+{
+  "Name": "wordLocalizer",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "wordLocalizer",
+  "Input": {
+    "task": [
+      "wordLocalizer"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "run_level",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          "trial_type.arithmetic",
+          "trial_type.language",
+          "trial_type.response",
+          "trans_?",
+          "rot_?"
+        ],
+        "HRF": {
+          "Variables": [
+            "trial_type.arithmetic",
+            "trial_type.language",
+            "trial_type.response"
+          ],
+          "Model": "spm"
+        },
+        "Type": "glm",
+        "Options": {
+          "HighPassFilterCutoffHz": 0.0078,
+          "Mask": {
+            "suffix": [
+              "mask"
+            ],
+            "desc": [
+              "brain"
+            ]
+          }
+        },
+        "Software": {
+          "SPM": {
+            "SerialCorrelation": "AR(1)"
+          }
+        }
+      },
+      "DummyContrasts": {
+        "Test": "t",
+        "Contrasts": [
+          "trial_type.arithmetic",
+          "trial_type.language"
+        ]
+      },
+      "Contrasts": [
+        {
+          "Name": "number_gt_word",
+          "ConditionList": [
+            "trial_type.arithmetic",
+            "trial_type.language"
+          ],
+          "Weights": [
+            1,-1
+          ],
+          "Test": "t"
+        },
+        {
+          "Name": "word_gt_number",
+          "ConditionList": [
+            "trial_type.arithmetic",
+            "trial_type.language"
+          ],
+          "Weights": [
+            -1,1
+          ],
+          "Test": "t"
+        },
+        {
+          "Name": "word_and_number",
+          "ConditionList": [
+            "trial_type.arithmetic",
+            "trial_type.language"
+          ],
+          "Weights": [
+            1,1
+          ],
+          "Test": "t"
+        }
+      ]
+      
+    }
+  ]
+}

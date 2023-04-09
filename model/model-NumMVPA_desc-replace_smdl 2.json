@@ -1,0 +1,241 @@
+{
+  "Name": "default_numMVPA_model",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "default BIDS stats model for numMVPA task",
+  "Input": {
+    "task": ["numMVPA"],
+    "space": ["IXI549Space"]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "combine_all",
+      "GroupBy": [
+        "run",
+        "session",
+        "subject"
+      ],
+      "Transformations": {
+        "Transformer": "bids-matlab_v0.1.0dev",
+        "Instructions": {
+          "Name": "Replace",
+          "Inputs": "trial_type",
+          "Attribute": "value",
+          "Replace": [
+            {
+              "key": "2aud_num",
+              "value": "allin1"
+            },
+            {
+              "key": "2aud_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "2vis_num",
+              "value": "allin1"
+            },
+            {
+              "key": "2vis_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "2vis_sim",
+              "value": "allin1"
+            },
+            {
+              "key": "3aud_num",
+              "value": "allin1"
+            },
+            {
+              "key": "3aud_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "3vis_num",
+              "value": "allin1"
+            },
+            {
+              "key": "3vis_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "3vis_sim",
+              "value": "allin1"
+            },
+            {
+              "key": "4aud_num",
+              "value": "allin1"
+            },
+            {
+              "key": "4aud_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "4vis_num",
+              "value": "allin1"
+            },
+            {
+              "key": "4vis_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "4vis_sim",
+              "value": "allin1"
+            },
+            {
+              "key": "5aud_num",
+              "value": "allin1"
+            },
+            {
+              "key": "5aud_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "5vis_num",
+              "value": "allin1"
+            },
+            {
+              "key": "5vis_seq",
+              "value": "allin1"
+            },
+            {
+              "key": "5vis_sim",
+              "value": "allin1"
+            }
+          ]
+        }
+      },
+      "Model": {
+        "X": [
+          "trial_type.2aud_num",
+          "trial_type.2aud_seq",
+          "trial_type.2vis_num",
+          "trial_type.2vis_seq",
+          "trial_type.2vis_sim",
+          "trial_type.3aud_num",
+          "trial_type.3aud_seq",
+          "trial_type.3vis_num",
+          "trial_type.3vis_seq",
+          "trial_type.3vis_sim",
+          "trial_type.4aud_num",
+          "trial_type.4aud_seq",
+          "trial_type.4vis_num",
+          "trial_type.4vis_seq",
+          "trial_type.4vis_sim",
+          "trial_type.5aud_num",
+          "trial_type.5aud_seq",
+          "trial_type.5vis_num",
+          "trial_type.5vis_seq",
+          "trial_type.5vis_sim",
+          "trial_type.response",
+          "1",
+          "trans_?",
+          "rot_?",
+          "non_steady_state_outlier*",
+          "motion_outlier*"
+        ],
+        "Type": "glm",
+        "HRF": {
+          "Variables": [
+            "trial_type.2aud_num",
+            "trial_type.2aud_seq",
+            "trial_type.2vis_num",
+            "trial_type.2vis_seq",
+            "trial_type.2vis_sim",
+            "trial_type.3aud_num",
+            "trial_type.3aud_seq",
+            "trial_type.3vis_num",
+            "trial_type.3vis_seq",
+            "trial_type.3vis_sim",
+            "trial_type.4aud_num",
+            "trial_type.4aud_seq",
+            "trial_type.4vis_num",
+            "trial_type.4vis_seq",
+            "trial_type.4vis_sim",
+            "trial_type.5aud_num",
+            "trial_type.5aud_seq",
+            "trial_type.5vis_num",
+            "trial_type.5vis_seq",
+            "trial_type.5vis_sim",
+            "trial_type.response"
+          ],
+          "Model": "spm"
+        },
+        "Options": {
+          "HighPassFilterCutoffHz": 0.008,
+          "Mask": {
+            "desc": ["brain"],
+            "suffix": ["mask"]
+          }
+        },
+        "Software": {
+          "SPM": {
+            "SerialCorrelation": "FAST",
+            "InclusiveMaskingThreshold": 0.8
+          }
+        }
+      },
+      "Contrasts": [
+        {
+          "Name": "",
+          "ConditionList": [""],
+          "Weights": [""],
+          "Test": "t"
+        }
+      ],
+      "DummyContrasts": {
+        "Test": "t",
+        "Contrasts": [
+          "trial_type.2aud_num",
+          "trial_type.2aud_seq",
+          "trial_type.2vis_num",
+          "trial_type.2vis_seq",
+          "trial_type.2vis_sim",
+          "trial_type.3aud_num",
+          "trial_type.3aud_seq",
+          "trial_type.3vis_num",
+          "trial_type.3vis_seq",
+          "trial_type.3vis_sim",
+          "trial_type.4aud_num",
+          "trial_type.4aud_seq",
+          "trial_type.4vis_num",
+          "trial_type.4vis_seq",
+          "trial_type.4vis_sim",
+          "trial_type.5aud_num",
+          "trial_type.5aud_seq",
+          "trial_type.5vis_num",
+          "trial_type.5vis_seq",
+          "trial_type.5vis_sim",
+          "trial_type.response"
+        ]
+      }
+    },
+    {
+      "Level": "Subject",
+      "Name": "subject",
+      "GroupBy": [
+        "subject",
+        "contrast"
+      ],
+      "Model": {
+        "X": [1],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    },
+    {
+      "Level": "Dataset",
+      "Name": "dataset",
+      "GroupBy": [""],
+      "Model": {
+        "X": [1],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    }
+  ]
+}

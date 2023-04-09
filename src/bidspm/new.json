@@ -1,0 +1,90 @@
+{
+  "Transformer": "bids-matlab_v0.1.0dev",
+  "Instructions": {
+    "Name": "Replace",
+    "Input": "trial_type",
+    "Attribute": "value",
+    "Replace": [
+      {
+        "key": "2aud_num",
+        "value": "allin1"
+      },
+      {
+        "key": "2aud_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "2vis_num",
+        "value": "allin1"
+      },
+      {
+        "key": "2vis_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "2vis_sim",
+        "value": "allin1"
+      },
+      {
+        "key": "3aud_num",
+        "value": "allin1"
+      },
+      {
+        "key": "3aud_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "3vis_num",
+        "value": "allin1"
+      },
+      {
+        "key": "3vis_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "3vis_sim",
+        "value": "allin1"
+      },
+      {
+        "key": "4aud_num",
+        "value": "allin1"
+      },
+      {
+        "key": "4aud_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "4vis_num",
+        "value": "allin1"
+      },
+      {
+        "key": "4vis_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "4vis_sim",
+        "value": "allin1"
+      },
+      {
+        "key": "5aud_num",
+        "value": "allin1"
+      },
+      {
+        "key": "5aud_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "5vis_num",
+        "value": "allin1"
+      },
+      {
+        "key": "5vis_seq",
+        "value": "allin1"
+      },
+      {
+        "key": "5vis_sim",
+        "value": "allin1"
+      }
+    ]
+  }
+}

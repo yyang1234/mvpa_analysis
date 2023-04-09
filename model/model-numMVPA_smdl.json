@@ -1,0 +1,80 @@
+{
+  "Name": "MVPAstats",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "stats for MVPA",
+  "Input": {
+    "task": [
+        "numMVPA"
+    ],
+    "space":[
+        "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+        "Level": "Run",
+        "Name": "run_level",
+        "GroupBy":[
+            "run",
+            "session",
+            "subject"
+        ],
+        "Model": {
+            "Type": "glm",
+            "X": [
+                "trial_type.2vis_sim",
+                "trial_type.3vis_sim",
+                "trial_type.4vis_sim",
+                "trial_type.5vis_sim",
+                "trial_type.2aud_num",
+                "trial_type.3aud_num",
+                "trial_type.4aud_num",
+                "trial_type.5aud_num",
+                "trial_type.2aud_seq",
+                "trial_type.3aud_seq",
+                "trial_type.4aud_seq",
+                "trial_type.5aud_seq",
+                "trial_type.2vis_seq",
+                "trial_type.3vis_seq",
+                "trial_type.4vis_seq",
+                "trial_type.5vis_seq",
+                "trial_type.2vis_num",
+                "trial_type.3vis_num",
+                "trial_type.4vis_num",
+                "trial_type.5vis_num",
+                "trans_x",
+                "trans_y",
+                "trans_z",
+                "rot_x",
+                "rot_y",
+                "rot_z"
+            ]
+        },
+        "DummyContrasts":{
+            "Test":"t",
+            "Contrasts":[
+                "trial_type.2vis_sim",
+                "trial_type.3vis_sim",
+                "trial_type.4vis_sim",
+                "trial_type.5vis_sim",
+                "trial_type.2aud_num",
+                "trial_type.3aud_num",
+                "trial_type.4aud_num",
+                "trial_type.5aud_num",
+                "trial_type.2aud_seq",
+                "trial_type.3aud_seq",
+                "trial_type.4aud_seq",
+                "trial_type.5aud_seq",
+                "trial_type.2vis_seq",
+                "trial_type.3vis_seq",
+                "trial_type.4vis_seq",
+                "trial_type.5vis_seq",
+                "trial_type.2vis_num",
+                "trial_type.3vis_num",
+                "trial_type.4vis_num",
+                "trial_type.5vis_num"
+        ]
+    }
+   }
+  ]
+}

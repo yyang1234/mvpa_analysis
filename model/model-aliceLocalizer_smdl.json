@@ -1,0 +1,120 @@
+{
+    "Name": "aliceLocalizer",
+    "BIDSModelVersion": "1.0.0",
+    "Description": "aliceLocalizer",
+    "Input": {
+      "task": [
+        "aliceLocalizer"
+      ],
+      "space": [
+        "IXI549Space"
+      ]
+    },
+    "Nodes": [
+      {
+        "Level": "Run",
+        "Name": "run_level",
+        "GroupBy": [
+          "run",
+          "subject"
+        ],
+        "Model": {
+          "X": [
+            "trial_type.fix",
+            "trial_type.degraded",
+            "trial_type.intact",
+            "trans_?",
+            "rot_?"
+          ],
+          "HRF": {
+            "Variables": [
+              "trial_type.fix",
+              "trial_type.degraded",
+              "trial_type.intact"
+            ],
+            "Model": "spm"
+          },
+          "Type": "glm",
+          "Options": {
+            "HighPassFilterCutoffHz": 0.0078,
+            "Mask": {
+              "suffix": [
+                "mask"
+              ],
+              "desc": [
+                "brain"
+              ]
+            }
+          },
+          "Software": {
+            "SPM": {
+              "SerialCorrelation": "AR(1)"
+            }
+          }
+        },
+        "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+            "trial_type.fix",
+            "trial_type.degraded",
+            "trial_type.intact"
+          ]
+        },
+        "Contrasts": [
+          {
+            "Name": "degraded_gt_intact",
+            "ConditionList": [
+              "trial_type.degraded",
+              "trial_type.intact"
+            ],
+            "Weights": [
+              1,-1
+            ],
+            "Test": "t"
+          },
+          {
+            "Name": "intact_gt_degraded",
+            "ConditionList": [
+              "trial_type.degraded",
+              "trial_type.intact"
+            ],
+            "Weights": [
+              -1,1
+            ],
+            "Test": "t"
+          }
+        ]
+      },
+      {
+        "Level": "Subject",
+        "Name": "subject_level",
+        "GroupBy": [
+          "contrast",
+          "subject"
+        ],
+        "Model": {
+          "Type": "glm",
+          "X": [
+            1
+          ],
+          "Software": {
+            "bidspm": {
+              "Results": [
+                {
+                  "name": [
+                    "intact_gt_degraded"
+                  ],
+                  "p": 0.001,
+                  "MC": "FDR"
+                }
+              ]
+            }
+          }
+        },
+        "DummyContrasts": {
+          "Test": "t"
+        }
+      }
+    ]
+  }
+  

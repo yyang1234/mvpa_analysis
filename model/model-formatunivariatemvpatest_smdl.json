@@ -1,0 +1,70 @@
+{
+  "Name": "only_modality",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "contrasts for the five tyoes of stimuli ignore the quantity",
+  "Input": {"task": [
+          "numMVPA"
+      ],
+      "space": [
+        "IXI549Space"
+      ]
+  },
+  "Nodes": [
+      {
+          "Level": "Run",
+          "Name": "run_level",
+          "GroupBy": ["run", "subject"],
+          "Model": {
+              "X": [
+                 "sum_trial.vis_sim",
+                 "sum_trial.aud_num",
+                 "sum_trial.aud_seq",
+                 "sum_trial.vis_seq",
+                 "sum_trial.vis_num",
+                 "sum_trial.response",
+                 "trans_?",
+                 "rot_?"
+              ],
+              "HRF": {
+                  "Variables": [
+                    "sum_trial.vis_sim",
+                    "sum_trial.aud_num",
+                    "sum_trial.aud_seq",
+                    "sum_trial.vis_seq",
+                    "sum_trial.vis_num",
+                    "sum_trial.response"
+                  ],
+                  "Model": "spm"
+              },
+              "Type": "glm",
+              "Options": {
+                  "HighPassFilterCutoffHz": 0.0078,
+                  "Mask": {
+                    "suffix": [
+                      "mask"
+                    ],
+                    "desc": [
+                      "brain"
+                    ]
+                  }
+              },
+              "Software": {
+                  "SPM": {
+                      "SerialCorrelation": "AR(1)"
+                  }
+              }
+          }, 
+          "DummyContrasts": {
+              "Test": "t",
+              "Contrasts": [
+                "sum_trial.vis_sim",
+                "sum_trial.aud_num",
+                "sum_trial.aud_seq",
+                "sum_trial.vis_seq",
+                "sum_trial.vis_num",
+                "sum_trial.response"
+              ]
+          }
+      }
+  ]
+}

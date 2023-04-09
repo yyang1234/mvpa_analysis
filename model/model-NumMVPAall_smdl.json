@@ -1,0 +1,145 @@
+{
+    "Name": "default_numMVPA_model_unicontrast",
+    "BIDSModelVersion": "1.0.0",
+    "Description": "default BIDS stats model for numMVPA task",
+    "Input": {
+      "task": [
+        "numMVPA"
+      ],
+      "space":[
+        "IXI549Space"
+    ]
+    },
+    "Nodes": [
+      {
+        "Level": "Run",
+        "Name": "mvpa-allcondition",
+        "GroupBy": [
+          "run",
+          "subject"
+        ],
+        "Model": {
+          "X": [
+            "trial_type.2aud_num",
+            "trial_type.2aud_seq",
+            "trial_type.2vis_num",
+            "trial_type.2vis_seq",
+            "trial_type.2vis_sim",
+            "trial_type.3aud_num",
+            "trial_type.3aud_seq",
+            "trial_type.3vis_num",
+            "trial_type.3vis_seq",
+            "trial_type.3vis_sim",
+            "trial_type.4aud_num",
+            "trial_type.4aud_seq",
+            "trial_type.4vis_num",
+            "trial_type.4vis_seq",
+            "trial_type.4vis_sim",
+            "trial_type.5aud_num",
+            "trial_type.5aud_seq",
+            "trial_type.5vis_num",
+            "trial_type.5vis_seq",
+            "trial_type.5vis_sim",
+            "trial_type.response",
+            "trans_?",
+            "rot_?"
+          ],
+          "Type": "glm",
+          "HRF": {
+            "Variables": [
+              "trial_type.2aud_num",
+              "trial_type.2aud_seq",
+              "trial_type.2vis_num",
+              "trial_type.2vis_seq",
+              "trial_type.2vis_sim",
+              "trial_type.3aud_num",
+              "trial_type.3aud_seq",
+              "trial_type.3vis_num",
+              "trial_type.3vis_seq",
+              "trial_type.3vis_sim",
+              "trial_type.4aud_num",
+              "trial_type.4aud_seq",
+              "trial_type.4vis_num",
+              "trial_type.4vis_seq",
+              "trial_type.4vis_sim",
+              "trial_type.5aud_num",
+              "trial_type.5aud_seq",
+              "trial_type.5vis_num",
+              "trial_type.5vis_seq",
+              "trial_type.5vis_sim"
+            ],
+            "Model": "spm"
+          },
+          "Options": {
+            "HighPassFilterCutoffHz": 0.0078,
+            "Mask": {
+              "desc": ["brain"],
+              "suffix": ["mask"]
+            }
+          },
+          "Software": {
+            "SPM": {
+              "SerialCorrelation": "FAST"
+            }
+          }
+        },
+        "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+            "trial_type.2aud_num",
+            "trial_type.2aud_seq",
+            "trial_type.2vis_num",
+            "trial_type.2vis_seq",
+            "trial_type.2vis_sim",
+            "trial_type.3aud_num",
+            "trial_type.3aud_seq",
+            "trial_type.3vis_num",
+            "trial_type.3vis_seq",
+            "trial_type.3vis_sim",
+            "trial_type.4aud_num",
+            "trial_type.4aud_seq",
+            "trial_type.4vis_num",
+            "trial_type.4vis_seq",
+            "trial_type.4vis_sim",
+            "trial_type.5aud_num",
+            "trial_type.5aud_seq",
+            "trial_type.5vis_num",
+            "trial_type.5vis_seq",
+            "trial_type.5vis_sim"
+          ]
+        },
+        "Contrasts": [
+          {
+            "Name": "all_condition",
+            "ConditionList": [
+            "trial_type.2aud_num",
+            "trial_type.2aud_seq",
+            "trial_type.2vis_num",
+            "trial_type.2vis_seq",
+            "trial_type.2vis_sim",
+            "trial_type.3aud_num",
+            "trial_type.3aud_seq",
+            "trial_type.3vis_num",
+            "trial_type.3vis_seq",
+            "trial_type.3vis_sim",
+            "trial_type.4aud_num",
+            "trial_type.4aud_seq",
+            "trial_type.4vis_num",
+            "trial_type.4vis_seq",
+            "trial_type.4vis_sim",
+            "trial_type.5aud_num",
+            "trial_type.5aud_seq",
+            "trial_type.5vis_num",
+            "trial_type.5vis_seq",
+            "trial_type.5vis_sim"
+            ],
+            "Weights": [
+              1,1,1,1,1,1,1,1,1,1,
+              1,1,1,1,1,1,1,1,1,1
+            ],
+            "Test": "t"
+          }
+        ]
+      }
+    ]
+  }
